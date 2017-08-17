@@ -1,0 +1,400 @@
+   1               		.file	"ADC.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	ADC_init
+  18               	ADC_init:
+  19               	.LFB2:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 379A      		sbi 38-32,7
+  25               	.LM3:
+  26 0002 369A      		sbi 38-32,6
+  27               	.LM4:
+  28 0004 3598      		cbi 38-32,5
+  29               	.LM5:
+  30 0006 80B7      		in r24,80-32
+  31 0008 8F77      		andi r24,lo8(127)
+  32 000a 80BF      		out 80-32,r24
+  33               	.LM6:
+  34 000c 80B7      		in r24,80-32
+  35 000e 8F7B      		andi r24,lo8(-65)
+  36 0010 80BF      		out 80-32,r24
+  37               	.LM7:
+  38 0012 80B7      		in r24,80-32
+  39 0014 8F7D      		andi r24,lo8(-33)
+  40 0016 80BF      		out 80-32,r24
+  41               	.LM8:
+  42 0018 3298      		cbi 38-32,2
+  43               	.LM9:
+  44 001a 3198      		cbi 38-32,1
+  45               	.LM10:
+  46 001c 3098      		cbi 38-32,0
+  47               	.LM11:
+  48 001e 3E9A      		sbi 39-32,6
+  49               	.LM12:
+  50 0020 3D9A      		sbi 39-32,5
+  51               	.LM13:
+  52 0022 3C98      		cbi 39-32,4
+  53               	.LM14:
+  54 0024 3B98      		cbi 39-32,3
+  55               	.LM15:
+  56 0026 3A98      		cbi 39-32,2
+  57               	.LM16:
+  58 0028 3998      		cbi 39-32,1
+  59               	.LM17:
+  60 002a 3898      		cbi 39-32,0
+  61               	/* epilogue start */
+  62               	.LM18:
+  63 002c 0895      		ret
+  64               	.LFE2:
+  66               	.global	ADC_init10bit
+  68               	ADC_init10bit:
+  69               	.LFB3:
+  70               	.LM19:
+  71               	/* prologue: function */
+  72               	/* frame size = 0 */
+  73               	.LM20:
+  74 002e 379A      		sbi 38-32,7
+  75               	.LM21:
+  76 0030 369A      		sbi 38-32,6
+  77               	.LM22:
+  78 0032 359A      		sbi 38-32,5
+  79               	.LM23:
+  80 0034 80B7      		in r24,80-32
+  81 0036 8F77      		andi r24,lo8(127)
+  82 0038 80BF      		out 80-32,r24
+  83               	.LM24:
+  84 003a 80B7      		in r24,80-32
+  85 003c 8F7B      		andi r24,lo8(-65)
+  86 003e 80BF      		out 80-32,r24
+  87               	.LM25:
+  88 0040 80B7      		in r24,80-32
+  89 0042 8F7D      		andi r24,lo8(-33)
+  90 0044 80BF      		out 80-32,r24
+  91               	.LM26:
+  92 0046 3298      		cbi 38-32,2
+  93               	.LM27:
+  94 0048 3198      		cbi 38-32,1
+  95               	.LM28:
+  96 004a 3098      		cbi 38-32,0
+  97               	.LM29:
+  98 004c 3E9A      		sbi 39-32,6
+  99               	.LM30:
+ 100 004e 3D98      		cbi 39-32,5
+ 101               	.LM31:
+ 102 0050 3C98      		cbi 39-32,4
+ 103               	.LM32:
+ 104 0052 3B98      		cbi 39-32,3
+ 105               	.LM33:
+ 106 0054 3A98      		cbi 39-32,2
+ 107               	.LM34:
+ 108 0056 3998      		cbi 39-32,1
+ 109               	.LM35:
+ 110 0058 3898      		cbi 39-32,0
+ 111               	/* epilogue start */
+ 112               	.LM36:
+ 113 005a 0895      		ret
+ 114               	.LFE3:
+ 116               	.global	readADC
+ 118               	readADC:
+ 119               	.LFB4:
+ 120               	.LM37:
+ 121               	.LVL0:
+ 122               	/* prologue: function */
+ 123               	/* frame size = 0 */
+ 124               	.LM38:
+ 125 005c 17B8      		out 39-32,__zero_reg__
+ 126               	.LM39:
+ 127 005e 8770      		andi r24,lo8(7)
+ 128               	.LVL1:
+ 129 0060 87B9      		out 39-32,r24
+ 130               	.LM40:
+ 131 0062 3D9A      		sbi 39-32,5
+ 132               	.LM41:
+ 133 0064 349A      		sbi 38-32,4
+ 134               	.LM42:
+ 135 0066 369A      		sbi 38-32,6
+ 136               	.L6:
+ 137               	.LM43:
+ 138 0068 349B      		sbis 38-32,4
+ 139 006a 00C0      		rjmp .L6
+ 140               	.LM44:
+ 141 006c 85B1      		in r24,37-32
+ 142               	.LVL2:
+ 143               	.LVL3:
+ 144               	/* epilogue start */
+ 145               	.LM45:
+ 146 006e 0895      		ret
+ 147               	.LFE4:
+ 149               	.global	getADCch4
+ 151               	getADCch4:
+ 152               	.LFB6:
+ 153               	.LM46:
+ 154               	/* prologue: function */
+ 155               	/* frame size = 0 */
+ 156               	.L10:
+ 157               	.LM47:
+ 158 0070 349B      		sbis 38-32,4
+ 159 0072 00C0      		rjmp .L10
+ 160               	.LM48:
+ 161 0074 3E9A      		sbi 39-32,6
+ 162               	.LM49:
+ 163 0076 3898      		cbi 39-32,0
+ 164               	.LM50:
+ 165 0078 3998      		cbi 39-32,1
+ 166               	.LM51:
+ 167 007a 3A9A      		sbi 39-32,2
+ 168               	.LM52:
+ 169 007c 3D9A      		sbi 39-32,5
+ 170               	.LM53:
+ 171 007e 349A      		sbi 38-32,4
+ 172               	.LM54:
+ 173 0080 369A      		sbi 38-32,6
+ 174               	.L11:
+ 175               	.LM55:
+ 176 0082 349B      		sbis 38-32,4
+ 177 0084 00C0      		rjmp .L11
+ 178               	.LM56:
+ 179 0086 85B1      		in r24,37-32
+ 180               	.LVL4:
+ 181               	.LVL5:
+ 182               	/* epilogue start */
+ 183               	.LM57:
+ 184 0088 0895      		ret
+ 185               	.LFE6:
+ 187               	.global	getADCch0
+ 189               	getADCch0:
+ 190               	.LFB7:
+ 191               	.LM58:
+ 192               	/* prologue: function */
+ 193               	/* frame size = 0 */
+ 194               	.L16:
+ 195               	.LM59:
+ 196 008a 349B      		sbis 38-32,4
+ 197 008c 00C0      		rjmp .L16
+ 198               	.LM60:
+ 199 008e 3E9A      		sbi 39-32,6
+ 200               	.LM61:
+ 201 0090 3898      		cbi 39-32,0
+ 202               	.LM62:
+ 203 0092 3998      		cbi 39-32,1
+ 204               	.LM63:
+ 205 0094 3A98      		cbi 39-32,2
+ 206               	.LM64:
+ 207 0096 3D9A      		sbi 39-32,5
+ 208               	.LM65:
+ 209 0098 349A      		sbi 38-32,4
+ 210               	.LM66:
+ 211 009a 369A      		sbi 38-32,6
+ 212               	.L17:
+ 213               	.LM67:
+ 214 009c 349B      		sbis 38-32,4
+ 215 009e 00C0      		rjmp .L17
+ 216               	.LM68:
+ 217 00a0 85B1      		in r24,37-32
+ 218               	.LVL6:
+ 219               	.LVL7:
+ 220               	/* epilogue start */
+ 221               	.LM69:
+ 222 00a2 0895      		ret
+ 223               	.LFE7:
+ 225               	.global	getADCch1
+ 227               	getADCch1:
+ 228               	.LFB8:
+ 229               	.LM70:
+ 230               	/* prologue: function */
+ 231               	/* frame size = 0 */
+ 232               	.L22:
+ 233               	.LM71:
+ 234 00a4 349B      		sbis 38-32,4
+ 235 00a6 00C0      		rjmp .L22
+ 236               	.LM72:
+ 237 00a8 3E9A      		sbi 39-32,6
+ 238               	.LM73:
+ 239 00aa 389A      		sbi 39-32,0
+ 240               	.LM74:
+ 241 00ac 3998      		cbi 39-32,1
+ 242               	.LM75:
+ 243 00ae 3A98      		cbi 39-32,2
+ 244               	.LM76:
+ 245 00b0 3D9A      		sbi 39-32,5
+ 246               	.LM77:
+ 247 00b2 349A      		sbi 38-32,4
+ 248               	.LM78:
+ 249 00b4 369A      		sbi 38-32,6
+ 250               	.L23:
+ 251               	.LM79:
+ 252 00b6 349B      		sbis 38-32,4
+ 253 00b8 00C0      		rjmp .L23
+ 254               	.LM80:
+ 255 00ba 85B1      		in r24,37-32
+ 256               	.LVL8:
+ 257               	.LVL9:
+ 258               	/* epilogue start */
+ 259               	.LM81:
+ 260 00bc 0895      		ret
+ 261               	.LFE8:
+ 263               	.global	getADCch2
+ 265               	getADCch2:
+ 266               	.LFB9:
+ 267               	.LM82:
+ 268               	/* prologue: function */
+ 269               	/* frame size = 0 */
+ 270               	.L28:
+ 271               	.LM83:
+ 272 00be 349B      		sbis 38-32,4
+ 273 00c0 00C0      		rjmp .L28
+ 274               	.LM84:
+ 275 00c2 3E9A      		sbi 39-32,6
+ 276               	.LM85:
+ 277 00c4 3898      		cbi 39-32,0
+ 278               	.LM86:
+ 279 00c6 399A      		sbi 39-32,1
+ 280               	.LM87:
+ 281 00c8 3A98      		cbi 39-32,2
+ 282               	.LM88:
+ 283 00ca 3D9A      		sbi 39-32,5
+ 284               	.LM89:
+ 285 00cc 349A      		sbi 38-32,4
+ 286               	.LM90:
+ 287 00ce 369A      		sbi 38-32,6
+ 288               	.L29:
+ 289               	.LM91:
+ 290 00d0 349B      		sbis 38-32,4
+ 291 00d2 00C0      		rjmp .L29
+ 292               	.LM92:
+ 293 00d4 85B1      		in r24,37-32
+ 294               	.LVL10:
+ 295               	.LVL11:
+ 296               	/* epilogue start */
+ 297               	.LM93:
+ 298 00d6 0895      		ret
+ 299               	.LFE9:
+ 301               	.global	getADCch3
+ 303               	getADCch3:
+ 304               	.LFB10:
+ 305               	.LM94:
+ 306               	/* prologue: function */
+ 307               	/* frame size = 0 */
+ 308               	.LM95:
+ 309 00d8 3E9A      		sbi 39-32,6
+ 310               	.LM96:
+ 311 00da 389A      		sbi 39-32,0
+ 312               	.LM97:
+ 313 00dc 399A      		sbi 39-32,1
+ 314               	.LM98:
+ 315 00de 3A98      		cbi 39-32,2
+ 316               	.LM99:
+ 317 00e0 3D9A      		sbi 39-32,5
+ 318               	.LM100:
+ 319 00e2 349A      		sbi 38-32,4
+ 320               	.LM101:
+ 321 00e4 369A      		sbi 38-32,6
+ 322               	.L34:
+ 323               	.LM102:
+ 324 00e6 349B      		sbis 38-32,4
+ 325 00e8 00C0      		rjmp .L34
+ 326               	.LM103:
+ 327 00ea 85B1      		in r24,37-32
+ 328               	.LVL12:
+ 329               	.LVL13:
+ 330               	/* epilogue start */
+ 331               	.LM104:
+ 332 00ec 0895      		ret
+ 333               	.LFE10:
+ 335               	.global	getADCch5
+ 337               	getADCch5:
+ 338               	.LFB11:
+ 339               	.LM105:
+ 340               	/* prologue: function */
+ 341               	/* frame size = 0 */
+ 342               	.LM106:
+ 343 00ee 3E9A      		sbi 39-32,6
+ 344               	.LM107:
+ 345 00f0 389A      		sbi 39-32,0
+ 346               	.LM108:
+ 347 00f2 3998      		cbi 39-32,1
+ 348               	.LM109:
+ 349 00f4 3A9A      		sbi 39-32,2
+ 350               	.LM110:
+ 351 00f6 3D9A      		sbi 39-32,5
+ 352               	.LM111:
+ 353 00f8 349A      		sbi 38-32,4
+ 354               	.LM112:
+ 355 00fa 369A      		sbi 38-32,6
+ 356               	.L38:
+ 357               	.LM113:
+ 358 00fc 349B      		sbis 38-32,4
+ 359 00fe 00C0      		rjmp .L38
+ 360               	.LM114:
+ 361 0100 85B1      		in r24,37-32
+ 362               	.LVL14:
+ 363               	.LVL15:
+ 364               	/* epilogue start */
+ 365               	.LM115:
+ 366 0102 0895      		ret
+ 367               	.LFE11:
+ 369               	.global	readADC10bit
+ 371               	readADC10bit:
+ 372               	.LFB5:
+ 373               	.LM116:
+ 374               	.LVL16:
+ 375               	/* prologue: function */
+ 376               	/* frame size = 0 */
+ 377               	.LM117:
+ 378 0104 17B8      		out 39-32,__zero_reg__
+ 379               	.LM118:
+ 380 0106 8770      		andi r24,lo8(7)
+ 381               	.LVL17:
+ 382 0108 87B9      		out 39-32,r24
+ 383               	.LM119:
+ 384 010a 3D98      		cbi 39-32,5
+ 385               	.LM120:
+ 386 010c 349A      		sbi 38-32,4
+ 387               	.L42:
+ 388               	.LM121:
+ 389 010e 349B      		sbis 38-32,4
+ 390 0110 00C0      		rjmp .L42
+ 391               	.LM122:
+ 392 0112 85B1      		in r24,37-32
+ 393 0114 0E94 0000 		call Term_Send_Value_as_Digits
+ 394               	.LM123:
+ 395 0118 84B1      		in r24,36-32
+ 396 011a 0E94 0000 		call Term_Send_Value_as_Digits
+ 397               	.LM124:
+ 398 011e 85B1      		in r24,37-32
+ 399               	.LVL18:
+ 400               	.LVL19:
+ 401               	/* epilogue start */
+ 402               	.LM125:
+ 403 0120 0895      		ret
+ 404               	.LFE5:
+ 502               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 ADC.c
+C:\DOCUME~1\tej\LOCALS~1\Temp/cc0VUwDA.s:2      *ABS*:0000003f __SREG__
+C:\DOCUME~1\tej\LOCALS~1\Temp/cc0VUwDA.s:3      *ABS*:0000003e __SP_H__
+C:\DOCUME~1\tej\LOCALS~1\Temp/cc0VUwDA.s:4      *ABS*:0000003d __SP_L__
+C:\DOCUME~1\tej\LOCALS~1\Temp/cc0VUwDA.s:5      *ABS*:00000034 __CCP__
+C:\DOCUME~1\tej\LOCALS~1\Temp/cc0VUwDA.s:6      *ABS*:00000000 __tmp_reg__
+C:\DOCUME~1\tej\LOCALS~1\Temp/cc0VUwDA.s:7      *ABS*:00000001 __zero_reg__
+C:\DOCUME~1\tej\LOCALS~1\Temp/cc0VUwDA.s:18     .text:00000000 ADC_init
+C:\DOCUME~1\tej\LOCALS~1\Temp/cc0VUwDA.s:68     .text:0000002e ADC_init10bit
+C:\DOCUME~1\tej\LOCALS~1\Temp/cc0VUwDA.s:118    .text:0000005c readADC
+C:\DOCUME~1\tej\LOCALS~1\Temp/cc0VUwDA.s:151    .text:00000070 getADCch4
+C:\DOCUME~1\tej\LOCALS~1\Temp/cc0VUwDA.s:189    .text:0000008a getADCch0
+C:\DOCUME~1\tej\LOCALS~1\Temp/cc0VUwDA.s:227    .text:000000a4 getADCch1
+C:\DOCUME~1\tej\LOCALS~1\Temp/cc0VUwDA.s:265    .text:000000be getADCch2
+C:\DOCUME~1\tej\LOCALS~1\Temp/cc0VUwDA.s:303    .text:000000d8 getADCch3
+C:\DOCUME~1\tej\LOCALS~1\Temp/cc0VUwDA.s:337    .text:000000ee getADCch5
+C:\DOCUME~1\tej\LOCALS~1\Temp/cc0VUwDA.s:371    .text:00000104 readADC10bit
+
+UNDEFINED SYMBOLS
+Term_Send_Value_as_Digits
